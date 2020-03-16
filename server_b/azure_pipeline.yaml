@@ -2,8 +2,9 @@ name: $(package_name)
 
 variables:
   - name: build_tf_configuration
-    value: false
-  - template: /global/azure_pipeline_variables.yaml
+    value: true
+  - name: env
+    value: dev
 
 stages:
   - stage: build_development
