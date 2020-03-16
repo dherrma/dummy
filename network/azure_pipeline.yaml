@@ -1,0 +1,21 @@
+name: $(package_name)
+
+variables:
+  - name: build_tf_configuration
+    value: true
+  - template: /global/azure_pipeline_variables.yaml
+
+stages:
+  - stage: build_development
+    jobs:
+      - template: /_global/azure_pipeline_build.yaml
+    variables:
+      - name: env
+        value: dev
+  - stage: release_development
+    dependsOn: build_development
+    jobs:
+      - template: /_global/azure_pipeline_release.yaml
+    variables:
+      - name: env
+        value: dev
