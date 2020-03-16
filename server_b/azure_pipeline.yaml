@@ -2,7 +2,7 @@ name: $(package_name)
 
 variables:
   - name: build_tf_configuration
-    value: true
+    value: falsv
   - name: env
     value: dev
 
